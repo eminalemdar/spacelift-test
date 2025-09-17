@@ -1,9 +1,0 @@
-init: super-iac init -input=false
-workspaceSelect: super-iac workspace select "{{ .WorkspaceName }}"
-workspaceNew: super-iac workspace new "{{ .WorkspaceName }}"
-plan: super-iac plan -input=false -lock={{ .Lock }} {{ if not .Refresh }}-refresh=false {{ end }}-out={{ .PlanFileName }} {{ range .Targets }}-target='{{ . }}' {{ end }}
-showState: super-iac show -json
-showPlan: super-iac show -json "{{ .PlanFileName }}"
-getOutputs: super-iac output -json
-apply: super-iac apply -auto-approve -input=false "{{ .PlanFileName }}"
-destroy: super-iac destroy -auto-approve -input=false
